@@ -1,0 +1,39 @@
+services:
+  mongo:
+    image: mongo:7
+    container_name: challenge-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')", "--quiet"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  api:
+    build: .
+    container_name: challenge-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      APP_PORT: "8080"
+      # ชื่อ host เป็น "mongo" ไม่ใช่ localhost — Docker network resolve ให้เอง
+      MONGO_URI: "mongodb://root:example@mongo:27017/?authSource=admin"
+      MONGO_DB: "userdb"
+      JWT_SECRET: "change-me-in-production"
+      JWT_EXPIRE_MINUTES: "60"
+      USER_COUNT_INTERVAL_SECONDS: "10"
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo-data:

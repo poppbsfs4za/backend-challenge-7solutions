@@ -1,0 +1,376 @@
+{
+  "info": {
+    "_postman_id": "7d364253-f9de-4dbd-884d-26fb4b3f5c0e",
+    "name": "7Solution",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "46541785"
+  },
+  "item": [
+    {
+      "name": "localhost:8080/health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/health",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "health"
+          ]
+        },
+        "description": "Generated from cURL: curl -s localhost:8080/health"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/auth/register",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const res = pm.response.json();\n\nif (pm.response.code === 201 && res.id) {\n    pm.collectionVariables.set(\"userId\", res.id);\n}\n\npm.test(\"status 201\", () => pm.response.to.have.status(201));\npm.test(\"no password leaked\", () => {\n    pm.expect(pm.response.json()).to.not.have.property(\"password\");\n});\npm.test(\"email normalized to lowercase\", () => {\n    const email = pm.response.json().email;\n    pm.expect(email).to.equal(email.toLowerCase());\n});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"name\": \"Someone\",\n    \"email\": \"KRAIWIT@mail.com\",\n    \"password\": \"secret1234\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/auth/register",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -X POST localhost:8080/api/v1/auth/register \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"name\":\"Kraiwit\",\"email\":\"Kraiwit@Mail.com\",\"password\":\"secret1234\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/auth/register",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Someone\",\"email\":\"KRAIWIT@mail.com\",\"password\":\"secret1234\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/auth/register",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -i -X POST localhost:8080/api/v1/auth/register \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"name\":\"Someone\",\"email\":\"KRAIWIT@mail.com\",\"password\":\"secret1234\"}' | head -1"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/auth/register 400",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Someone\",\"email\":\"KRAIWIT@mail.com\",\"password\":\"secret1234\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/auth/register",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "register"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -i -X POST localhost:8080/api/v1/auth/register \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"name\":\"Someone\",\"email\":\"KRAIWIT@mail.com\",\"password\":\"secret1234\"}' | head -1"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/auth/login",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const res = pm.response.json();\nconsole.log(\"status:\", pm.response.code, \"body:\", res);\n\nif (pm.response.code === 200 && res.access_token) {\n    pm.collectionVariables.set(\"token\", res.access_token);\n    console.log(\"✅ token saved\");\n} else {\n    console.warn(\"❌ no token in response\");\n}"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"email\": \"Kraiwit@mail.com\",\n    \"password\": \"secret1234\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/auth/login",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "auth",
+            "login"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -X POST localhost:8080/api/v1/auth/login \\\n  -H 'Content-Type: application/json' \\\n  -d '{\"email\":\"kraiwit@mail.com\",\"password\":\"secret1234\"}' \\\n  | sed -n 's/.*\"access_token\":\"\\([^\"]*\\)\".*/\\1/p'"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/users",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "localhost:8080/api/v1/users",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -i localhost:8080/api/v1/users | head -1"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/users/abc",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer $TOKEN"
+          }
+        ],
+        "url": {
+          "raw": "localhost:8080/api/v1/users/abc",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "abc"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -i localhost:8080/api/v1/users/abc -H \"Authorization: Bearer $TOKEN\" | head -1"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/users/$ID",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer $TOKEN"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\":\"Kraiwit W.\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "localhost:8080/api/v1/users/$ID",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "$ID"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -X PUT localhost:8080/api/v1/users/$ID \\\n  -H \"Authorization: Bearer $TOKEN\" -H 'Content-Type: application/json' \\\n  -d '{\"name\":\"Kraiwit W.\"}'"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/users/$ID",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer $TOKEN"
+          }
+        ],
+        "url": {
+          "raw": "localhost:8080/api/v1/users/$ID",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "$ID"
+          ]
+        },
+        "description": "Generated from cURL: curl -s localhost:8080/api/v1/users/$ID -H \"Authorization: Bearer $TOKEN\"\n"
+      },
+      "response": []
+    },
+    {
+      "name": "localhost:8080/api/v1/users/$ID",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer $TOKEN"
+          }
+        ],
+        "url": {
+          "raw": "localhost:8080/api/v1/users/$ID",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "users",
+            "$ID"
+          ]
+        },
+        "description": "Generated from cURL: curl -s -i -X DELETE localhost:8080/api/v1/users/$ID \\\n  -H \"Authorization: Bearer $TOKEN\" | head -1"
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "userId",
+      "value": ""
+    }
+  ]
+}
