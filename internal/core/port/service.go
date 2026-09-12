@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/poppsfs4za/backend-challenge/internal/core/domain"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/domain"
 )
 
 type RegisterInput struct {

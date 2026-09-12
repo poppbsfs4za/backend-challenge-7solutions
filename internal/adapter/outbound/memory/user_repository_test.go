@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/poppsfs4za/backend-challenge/internal/adapter/outbound/memory"
-	"github.com/poppsfs4za/backend-challenge/internal/core/domain"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/adapter/outbound/memory"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/domain"
 )
 
 func newUser(name, email string) *domain.User {

@@ -6,7 +6,7 @@ import (
 
 	"github.com/golang-jwt/jwt/v5"
 
-	"github.com/poppsfs4za/backend-challenge/internal/core/port"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/port"
 )
 
 var ErrInvalidToken = errors.New("invalid or expired token")

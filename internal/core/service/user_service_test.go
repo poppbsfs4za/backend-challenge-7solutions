@@ -6,10 +6,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/poppsfs4za/backend-challenge/internal/adapter/outbound/memory"
-	"github.com/poppsfs4za/backend-challenge/internal/core/domain"
-	"github.com/poppsfs4za/backend-challenge/internal/core/port"
-	"github.com/poppsfs4za/backend-challenge/internal/core/service"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/adapter/outbound/memory"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/domain"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/port"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/service"
 )
 
 // ---------- test double สำหรับ TokenManager ----------

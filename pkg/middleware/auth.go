@@ -6,7 +6,7 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	jwtpkg "github.com/poppsfs4za/backend-challenge/pkg/jwt"
+	jwtpkg "github.com/poppbsfs4za/backend-challenge-7solutions/pkg/jwt"
 )
 
 const (

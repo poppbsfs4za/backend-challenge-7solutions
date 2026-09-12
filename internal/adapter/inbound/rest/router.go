@@ -3,8 +3,8 @@ package rest
 import (
 	"github.com/labstack/echo/v4"
 
-	jwtpkg "github.com/poppsfs4za/backend-challenge/pkg/jwt"
-	mw "github.com/poppsfs4za/backend-challenge/pkg/middleware"
+	jwtpkg "github.com/poppbsfs4za/backend-challenge-7solutions/pkg/jwt"
+	mw "github.com/poppbsfs4za/backend-challenge-7solutions/pkg/middleware"
 )
 
 func RegisterRoutes(e *echo.Echo, h *UserHandler, jwtManager *jwtpkg.Manager) {

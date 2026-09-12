@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/poppsfs4za/backend-challenge/pkg/hash"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/pkg/hash"
 )
 
 func TestHashPassword(t *testing.T) {

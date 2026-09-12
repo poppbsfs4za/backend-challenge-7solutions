@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/poppsfs4za/backend-challenge/internal/core/port"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/port"
 )
 
 // UserCounter คือ background job ตามโจทย์ข้อ 6

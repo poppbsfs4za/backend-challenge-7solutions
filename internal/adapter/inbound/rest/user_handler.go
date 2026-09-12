@@ -6,8 +6,8 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/poppsfs4za/backend-challenge/internal/core/domain"
-	"github.com/poppsfs4za/backend-challenge/internal/core/port"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/domain"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/port"
 )
 
 type UserHandler struct {

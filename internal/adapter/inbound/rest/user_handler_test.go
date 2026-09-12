@@ -12,10 +12,10 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/poppsfs4za/backend-challenge/internal/adapter/inbound/rest"
-	"github.com/poppsfs4za/backend-challenge/internal/core/domain"
-	"github.com/poppsfs4za/backend-challenge/internal/core/port"
-	"github.com/poppsfs4za/backend-challenge/pkg/validator"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/adapter/inbound/rest"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/domain"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/port"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/pkg/validator"
 )
 
 var errUnexpected = errors.New("mongo: connection string invalid")

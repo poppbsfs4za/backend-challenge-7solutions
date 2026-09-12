@@ -7,7 +7,7 @@ import (
 
 	jwtlib "github.com/golang-jwt/jwt/v5"
 
-	jwtpkg "github.com/poppsfs4za/backend-challenge/pkg/jwt"
+	jwtpkg "github.com/poppbsfs4za/backend-challenge-7solutions/pkg/jwt"
 )
 
 const secret = "test-secret"

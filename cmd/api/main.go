@@ -12,14 +12,14 @@ import (
 
 	"github.com/labstack/echo/v4"
 
-	"github.com/poppsfs4za/backend-challenge/internal/adapter/inbound/rest"
-	mongoadapter "github.com/poppsfs4za/backend-challenge/internal/adapter/outbound/mongo"
-	"github.com/poppsfs4za/backend-challenge/internal/core/service"
-	"github.com/poppsfs4za/backend-challenge/pkg/config"
-	jwtpkg "github.com/poppsfs4za/backend-challenge/pkg/jwt"
-	mw "github.com/poppsfs4za/backend-challenge/pkg/middleware"
-	"github.com/poppsfs4za/backend-challenge/pkg/mongodb"
-	"github.com/poppsfs4za/backend-challenge/pkg/validator"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/adapter/inbound/rest"
+	mongoadapter "github.com/poppbsfs4za/backend-challenge-7solutions/internal/adapter/outbound/mongo"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/service"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/pkg/config"
+	jwtpkg "github.com/poppbsfs4za/backend-challenge-7solutions/pkg/jwt"
+	mw "github.com/poppbsfs4za/backend-challenge-7solutions/pkg/middleware"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/pkg/mongodb"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/pkg/validator"
 )
 
 func main() {

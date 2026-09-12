@@ -9,8 +9,8 @@ import (
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 
-	"github.com/poppsfs4za/backend-challenge/internal/core/domain"
-	"github.com/poppsfs4za/backend-challenge/internal/core/port"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/domain"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/port"
 )
 
 // userDocument คือรูปร่างข้อมูลในมุมของ MongoDB

@@ -1,4 +1,4 @@
-module github.com/poppsfs4za/backend-challenge
+module github.com/poppbsfs4za/backend-challenge-7solutions
 
 go 1.26.0
 

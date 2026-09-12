@@ -3,7 +3,7 @@ package port
 import (
 	"context"
 
-	"github.com/poppsfs4za/backend-challenge/internal/core/domain"
+	"github.com/poppbsfs4za/backend-challenge-7solutions/internal/core/domain"
 )
 
 // UserRepository คือสิ่งที่แกนกลาง "ต้องการ" จากที่เก็บข้อมูล
