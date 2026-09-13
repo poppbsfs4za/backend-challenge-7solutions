@@ -28,7 +28,6 @@ func main() {
 		log.Fatalf("config: %v", err)
 	}
 
-	// ctx นี้จะถูกยกเลิกเมื่อกด Ctrl+C หรือ Docker ส่ง SIGTERM
 	ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer stop()
 
